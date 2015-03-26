@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo npm install
+
+if ! which forever &> /dev/null; then
+  sudo npm install -g forever
+fi
