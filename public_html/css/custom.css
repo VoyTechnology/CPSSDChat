@@ -1,0 +1,19 @@
+.side-nav {
+  top: auto !important;
+}
+
+.collapsible-header{
+  line-height: 44px !important;
+  margin: 0 !important;
+}
+
+.collapsible-body li a {
+  margin: 0 !important;
+  padding: 0 2rem !important;
+  height: auto !important;
+  line-height: 44px !important;
+}
+
+.material-icons {
+  line-height: inherit !important;
+}

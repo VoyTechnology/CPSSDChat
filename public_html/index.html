@@ -1,0 +1,84 @@
+<!DOCUMENT html>
+<html ng-app>
+  <head>
+    <title>CPSSD Chat</title>
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css" media="screen,projection">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="css/custom.css" media="screen" title="no title" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="charset" content="UTF-8">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+  </head>
+  <body>
+    <div id="loginWrap"  class="valign-wrapper" style="height:100%; display:none">
+      <div class="row" style="width:25vw">
+        <form id="loginForm" class="card-panel">
+          <h3 class="center-align">CPSSDChat</h3>
+            <div class="input-field row">
+              <i class="material-icons prefix">account_circle</i>
+              <input type="email" ng-model="loginEmail" id="loginEmail" class="validate">
+              <label for="loginEmail" data-error="Invalid">E-mail</label>
+            </div>
+
+            <div class="input-field row">
+              <i class="material-icons prefix">lock</i>
+              <label for="loginPassword">Password</label>
+              <input type="password" id="loginPassword" value="">
+            </div>
+          <div class="row right-align">
+            <button class="waves-effect btn">Log in</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <nav>
+        <div class="nav-wrapper brown darken-4">
+          <span class="brand-logo" style="padding-left: 1rem;">CPSSD Chat</span>
+          <ul class="right">
+            <li><a href="#!/search"><i class="material-icons">search</i></a></li>
+            <li><a href="#!/settings"><i class="material-icons">settings</i></a></li>
+            <li><a href="#!/logout"><i class="material-icons">input</i></a></li>
+          </ul>
+
+          <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
+        </div>
+      </nav>
+
+        <ul id="slide-out" class="side-nav fixed">
+          <li class="no-padding collapsible">
+            <a class="collapsible-header waves-effect brown lighten-1 white-text"><i class="material-icons">group</i>Rooms</a>
+            <ul class="collapsible-body" style="display: block">
+              <li><a href="#!/room/1" class="waves-effect"><i class="material-icons grey-text left tiny">public</i>General</a></li>
+              <li><a href="#!/room/2" class="waves-effect"><i class="material-icons grey-text left tiny">lock_outline</i>CPSSD1</a></li>
+              <li><a href="#!/room/3" class="waves-effect"><i class="material-icons grey-text left tiny">lock_open</i>CPSSD2</a></li>
+              <li><a href="#!/room/new" class="waves-effect grey-text"><i class="material-icons left tiny">group_add</i>New Room</a></li>
+
+            </ul>
+          </li>
+          <li class="no-padding collapsible">
+            <a class="collapsible-header waves-effect brown lighten-1 white-text"><i class="material-icons">person</i>People</a>
+            <ul class="collapsible-body" style="display: block">
+              <li><a href="#!/user/voy" class="waves-effect"><i class="material-icons green-text left tiny">lens</i>voy</a></li>
+              <li><a href="#!/user/terry" class="waves-effect"><i class="material-icons red-text left tiny">lens</i>Terry</a></li>
+              <li><a href="#!/user/ryan" class="waves-effect"><i class="material-icons orange-text left tiny">schedule</i>Ryan</a></li>
+              <li><a href="#!/user/ryan" class="waves-effect"><i class="material-icons red-text left tiny">not_interested</i>Mladen</a></li>
+              <li><a href="#!/user/ryan" class="waves-effect"><i class="material-icons grey-text left tiny">smartphone</i>Conor</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+
+
+
+    </div>
+
+
+
+
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </body>
+</html>

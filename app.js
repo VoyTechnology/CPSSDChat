@@ -1,5 +1,6 @@
-var config = require('./config.js');
+var config = require('./config.json');
+var App = require("./System/app.js");
 
 var app = new App();
 
-app.start();
+app.start( config );
