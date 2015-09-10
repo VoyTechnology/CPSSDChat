@@ -33,6 +33,27 @@ func newRoom() *room {
 	}
 }
 
+func (r *room) run() {
+	for {
+		select {
+		case conn := <-register:
+			r.connections[conn] = true
+		case conn := <-unregister:
+			if _, ok := r.connections[c]; ok {
+				delete(r.connections, c)
+			}
+		// When receiving a message, send it down all active connections
+		case message := <-messages:
+			for conn := range r.connections {
+				err := conn.WriteMessage(websocket.TextMessage, []byte(message))
+				if err != nil {
+					log.Printf("ERROR: Could not write message: %s\n", err)
+				}
+			}
+		}
+	}
+}
+
 func main() {
 	log.Fatalln("I do nothing!")
 }
