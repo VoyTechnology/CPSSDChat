@@ -29,3 +29,5 @@ _testmain.go
 Session.vim
 .netrwhist
 *~
+
+node_modules/
