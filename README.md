@@ -1,5 +1,7 @@
 # CPSSD Chat #
 
+[![Build Status](https://travis-ci.org/VoyTechnology/CPSSDChat.svg)](https://travis-ci.org/VoyTechnology/CPSSDChat)
+
 ---
 
 In VERY early stage of development. PLEASE IGNORE
