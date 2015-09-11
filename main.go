@@ -20,8 +20,9 @@ type room struct {
 	// All active connections
 	connections map[*connection]bool
 
-	// A buffered channel of incoming messages
-	messages chan string
+	// A buffered channel of incoming messages. []byte and not string
+	// becaus the websockets use []bytes.
+	messages chan []byte
 
 	// Requests to join the room
 	register chan *connection
@@ -33,7 +34,7 @@ type room struct {
 func newRoom() *room {
 	return &room{
 		connections: make(map[*connection]bool),
-		messages:    make(chan string, 20),
+		messages:    make(chan []byte, 20),
 		register:    make(chan *connection),
 		unregister:  make(chan *connection),
 	}
@@ -51,7 +52,7 @@ func (r *room) run() {
 		// When receiving a message, send it down all active connections
 		case message := <-r.messages:
 			for conn := range r.connections {
-				err := conn.ws.WriteMessage(websocket.TextMessage, []byte(message))
+				err := conn.ws.WriteMessage(websocket.TextMessage, message)
 				if err != nil {
 					log.Printf("ERROR: Could not write message: %s\n", err)
 				}
@@ -72,7 +73,7 @@ func (conn *connection) reader() {
 			log.Printf("ERROR: Could not read message: %s\n", err)
 			break
 		}
-		conn.r.messages <- string(message)
+		conn.r.messages <- message
 	}
 	conn.ws.Close()
 }
