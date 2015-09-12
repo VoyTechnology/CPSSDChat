@@ -6,10 +6,8 @@ go:
 - release
 - tip
 
-install:
-- go get github.com/gorilla/websocket
-- go get github.com/voytechnology/cpssdchat
-- go get github.com/voytechnology/cpssdchat/chat
+before-install:
+- ln -s $TRAVIS_BUILD_DIR $GOPATH/src/github.com/voytechnology/cpssdchat
 
 script:
 - go test -v ./...
