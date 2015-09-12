@@ -6,11 +6,12 @@ go:
 - release
 - tip
 
-install:
-- go get github.com/gorilla/websocket
-
-script:
-- go test -v ./...
+before-install:
+- cd $HOME
+- mv $HOME/gopath/src/github.com/VoyTechnology $HOME/gopath/src/github.com/voytechnology
+- mv $HOME/gopath/src/github.com/voytechnology/CPSSDChat $HOME/gopath/src/github.com/voytechnology/cpssdchat
+- TRAVIS_BUILD_DIR=$HOME/gopath/src/github.com/VoyTechnology/cpssdchat
+- cd $TRAVIS_BUILD_DIR
 
 notifications:
   hipchat:
