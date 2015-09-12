@@ -9,6 +9,7 @@ go:
 install:
 - go get github.com/gorilla/websocket
 - go get github.com/voytechnology/cpssdchat
+- go get github.com/voytechnology/cpssdchat/chat
 
 script:
 - go test -v ./...
