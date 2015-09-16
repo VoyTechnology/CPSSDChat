@@ -6,8 +6,12 @@ go:
 - release
 - tip
 
-script:
-- go test -v ./...
+before_install:
+- cd $HOME
+- mv $HOME/gopath/src/github.com/VoyTechnology $HOME/gopath/src/github.com/voytechnology
+- mv $HOME/gopath/src/github.com/voytechnology/CPSSDChat $HOME/gopath/src/github.com/voytechnology/cpssdchat
+- TRAVIS_BUILD_DIR=$HOME/gopath/src/github.com/voytechnology/cpssdchat
+- cd $TRAVIS_BUILD_DIR
 
 notifications:
   hipchat:
