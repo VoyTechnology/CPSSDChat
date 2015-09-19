@@ -25,6 +25,7 @@ func (handler websocketHandler) ServeHTTP(w http.ResponseWriter, r *http.Request
 	ws, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Printf("ERROR: Could not upgrade websocket: %s\n", err)
+		return
 	}
 	conn := chat.NewConnection(ws, handler.r)
 	handler.r.Register <- conn
